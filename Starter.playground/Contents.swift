@@ -59,6 +59,16 @@ example(of: "prepend(Publisher) #2") {
     publisher2.send(completion: .finished)
 }
 
+example(of: "append(Output...)") {
+    let publisher = [1].publisher
+    
+    publisher
+        .append(2, 3)
+        .append(4)
+        .sink(receiveValue: { print($0) })
+        .store(in: &subscriptions)
+}
+
 
 
 // Copyright (c) 2020 Razeware LLC
