@@ -29,6 +29,21 @@ example(of: "prepend(Sequence)") {
     
 }
 
+example(of: "prepend(Publisher)") {
+    // 1 create 2 publishers
+    let publisher1 = [3, 4].publisher
+    let publisher2 = [1, 2].publisher
+
+    // 2 prepend publisher2 at the begining of publisher 1
+    publisher1
+        .prepend(publisher2)
+        .sink(receiveValue: { print($0) })
+        .store(in: &subscriptions)
+    
+}
+
+
+
 
 // Copyright (c) 2020 Razeware LLC
 //
