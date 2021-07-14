@@ -16,7 +16,18 @@ example(of: "prepend(Output...)") {
 }
 
 
-
+example(of: "prepend(Sequence)") {
+    // 1
+    let publisher = [5, 6, 7].publisher
+    
+    // 2
+        .prepend([3, 4])
+        .prepend(Set(1...2))
+        .prepend(stride(from: 6, to: 11, by: 2)) // Strideable conform to sequence. We can use it
+        .sink(receiveValue: { print($0) })
+        .store(in: &subscriptions)
+    
+}
 
 
 // Copyright (c) 2020 Razeware LLC
