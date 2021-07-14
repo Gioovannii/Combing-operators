@@ -69,6 +69,22 @@ example(of: "append(Output...)") {
         .store(in: &subscriptions)
 }
 
+example(of: "append(Output...) #2") {
+    // 1 create publisher passtroughSubject so we can send value manually
+    let publisher = PassthroughSubject<Int, Never>()
+    
+    publisher
+        .append(3, 4)
+        .append(5)
+        .sink(receiveValue: { print($0)} )
+        .store(in: &subscriptions)
+    
+    // 2 Send 1 and 2 to passtroughSubject
+    publisher.send(1)
+    publisher.send(2)
+    publisher.send(completion: .finished)
+}
+
 
 
 // Copyright (c) 2020 Razeware LLC
