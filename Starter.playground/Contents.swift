@@ -3,6 +3,20 @@ import Combine
 
 var subscriptions = Set<AnyCancellable>()
 
+example(of: "prepend(Output...)") {
+    // 1 create a publisher 
+    let publisher = [3, 4].publisher
+    
+    // 2 Use prepend to add numbers 1, 2 before the publisher owns values
+    publisher
+        .prepend(1, 2)
+        .prepend(-1, 0)
+        .sink(receiveValue: { print($0) })
+        .store(in: &subscriptions)
+}
+
+
+
 
 
 // Copyright (c) 2020 Razeware LLC
