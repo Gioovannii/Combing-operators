@@ -86,6 +86,8 @@ example(of: "append(Output...) #2") {
 }
 
 example(of: "append(Sequence)") {
+    // 1
+    let publisher = [1, 2, 3].publisher
     
 }
 
