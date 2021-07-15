@@ -93,6 +93,7 @@ example(of: "append(Sequence)") {
         .append([4, 5])
         .append(Set([6, 7]))
         .append(stride(from: 8, to: 11, by: 2))
+        .sink(receiveValue: { print($0) })
 }
 
 // Copyright (c) 2020 Razeware LLC
