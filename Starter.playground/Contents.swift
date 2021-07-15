@@ -85,7 +85,9 @@ example(of: "append(Output...) #2") {
     publisher.send(completion: .finished)
 }
 
-
+example(of: "append(Sequence)") {
+    
+}
 
 // Copyright (c) 2020 Razeware LLC
 //
