@@ -89,7 +89,9 @@ example(of: "append(Sequence)") {
     // 1
     let publisher = [1, 2, 3].publisher
     
-    publisher.append([4, 5])
+    publisher
+        .append([4, 5])
+        .append(Set([6, 7]))
 }
 
 // Copyright (c) 2020 Razeware LLC
