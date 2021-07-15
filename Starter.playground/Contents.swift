@@ -92,6 +92,7 @@ example(of: "append(Sequence)") {
     publisher
         .append([4, 5])
         .append(Set([6, 7]))
+        .append(stride(from: 8, to: 11, by: 2))
 }
 
 // Copyright (c) 2020 Razeware LLC
