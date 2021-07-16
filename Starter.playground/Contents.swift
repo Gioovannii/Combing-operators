@@ -109,6 +109,11 @@ example(of: "append(Publisher)") {
         .store(in: &subscriptions)
 }
 
+example(of: "switchToLatest") {
+    // 1
+    let publisher1 = PassthroughSubject<Int, Never>()
+    let publisher2 = PassthroughSubject<Int, Never>()
+    let publisher3 = PassthroughSubject<Int, Never>()
 
 
 // Copyright (c) 2020 Razeware LLC
