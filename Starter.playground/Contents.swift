@@ -123,6 +123,14 @@ example(of: "switchToLatest") {
         .switchToLatest()
         .sink(receiveCompletion: { _ in print("Completed") },
               receiveValue: { print($0) })
+        .store(in: &subscriptions)
+    
+    // 4
+    publishers.send(publisher1)
+    publisher1.send(1)
+    publisher1.send(2)
+    
+   
 }
 
 // Copyright (c) 2020 Razeware LLC
