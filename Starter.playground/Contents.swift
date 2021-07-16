@@ -115,6 +115,11 @@ example(of: "switchToLatest") {
     let publisher2 = PassthroughSubject<Int, Never>()
     let publisher3 = PassthroughSubject<Int, Never>()
 
+    // 2
+    let publishers = PassthroughSubject<PassthroughSubject<Int, Never>, Never>()
+    
+   
+}
 
 // Copyright (c) 2020 Razeware LLC
 //
