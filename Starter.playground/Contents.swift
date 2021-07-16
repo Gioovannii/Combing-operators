@@ -19,8 +19,8 @@ example(of: "prepend(Output...)") {
 example(of: "prepend(Sequence)") {
     // 1
     let publisher = [5, 6, 7].publisher
-    
-    // 2
+        
+        // 2
         .prepend([3, 4])
         .prepend(Set(1...2))
         .prepend(stride(from: 6, to: 11, by: 2)) // Strideable conform to sequence. We can use it
@@ -33,7 +33,7 @@ example(of: "prepend(Publisher)") {
     // 1 create 2 publishers
     let publisher1 = [3, 4].publisher
     let publisher2 = [1, 2].publisher
-
+    
     // 2 prepend publisher2 at the begining of publisher 1
     publisher1
         .prepend(publisher2)
@@ -114,11 +114,15 @@ example(of: "switchToLatest") {
     let publisher1 = PassthroughSubject<Int, Never>()
     let publisher2 = PassthroughSubject<Int, Never>()
     let publisher3 = PassthroughSubject<Int, Never>()
-
+    
     // 2
     let publishers = PassthroughSubject<PassthroughSubject<Int, Never>, Never>()
     
-   
+    // 3
+    publishers
+        .switchToLatest()
+        .sink(receiveCompletion: { _ in print("Completed") },
+              receiveValue: { print($0) })
 }
 
 // Copyright (c) 2020 Razeware LLC
