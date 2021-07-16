@@ -97,6 +97,20 @@ example(of: "append(Sequence)") {
         .store(in: &subscriptions)
 }
 
+example(of: "append(Publisher)") {
+    // create two publisher
+    let publisher1 = [1, 2].publisher
+    let publisher2 = [3, 4].publisher
+    
+    // append publisher 2 to publisher 1
+    publisher1
+        .append(publisher2)
+        .sink(receiveValue: { print($0) })
+        .store(in: &subscriptions)
+}
+
+
+
 // Copyright (c) 2020 Razeware LLC
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
