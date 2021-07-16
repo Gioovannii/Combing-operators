@@ -136,7 +136,14 @@ example(of: "switchToLatest") {
     publisher2.send(4)
     publisher2.send(5)
     
-   
+    // 6
+    publishers.send(publisher3)
+    publisher2.send(6)
+    publisher3.send(7)
+    publisher3.send(8)
+    publisher3.send(9)
+    
+    
 }
 
 // Copyright (c) 2020 Razeware LLC
