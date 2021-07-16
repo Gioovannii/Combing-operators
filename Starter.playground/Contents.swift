@@ -130,6 +130,12 @@ example(of: "switchToLatest") {
     publisher1.send(1)
     publisher1.send(2)
     
+    // 5
+    publishers.send(publisher2)
+    publisher1.send(3)
+    publisher2.send(4)
+    publisher2.send(5)
+    
    
 }
 
