@@ -118,7 +118,7 @@ example(of: "switchToLatest") {
     // 2 Create passthroughSubject subject that accept other passthroughSubject
     let publishers = PassthroughSubject<PassthroughSubject<Int, Never>, Never>()
     
-    // 3
+    // 3 switchToLatest so every time we send different publisher
     publishers
         .switchToLatest()
         .sink(receiveCompletion: { _ in print("Completed") },
