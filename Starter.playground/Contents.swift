@@ -110,7 +110,7 @@ example(of: "append(Publisher)") {
 }
 
 example(of: "switchToLatest") {
-    // 1
+    // 1 create passthrough subject accept int and no errors
     let publisher1 = PassthroughSubject<Int, Never>()
     let publisher2 = PassthroughSubject<Int, Never>()
     let publisher3 = PassthroughSubject<Int, Never>()
