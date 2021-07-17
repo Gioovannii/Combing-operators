@@ -143,7 +143,9 @@ example(of: "switchToLatest") {
     publisher3.send(8)
     publisher3.send(9)
     
-    
+    // 7
+    publisher3.send(completion: .finished)
+    publishers.send(completion: .finished)
 }
 
 // Copyright (c) 2020 Razeware LLC
