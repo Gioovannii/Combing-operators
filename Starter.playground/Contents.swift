@@ -136,17 +136,20 @@ example(of: "switchToLatest") {
     publisher2.send(4)
     publisher2.send(5)
     
-    // 6
+    // 6 send value to publisher 3
     publishers.send(publisher3)
     publisher2.send(6)
     publisher3.send(7)
     publisher3.send(8)
     publisher3.send(9)
     
-    // 7
+    // 7 send completion event to complete all actives subscription
     publisher3.send(completion: .finished)
     publishers.send(completion: .finished)
 }
+
+
+
 
 // Copyright (c) 2020 Razeware LLC
 //
