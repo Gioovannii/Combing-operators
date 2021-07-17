@@ -125,7 +125,7 @@ example(of: "switchToLatest") {
               receiveValue: { print($0) })
         .store(in: &subscriptions)
     
-    // 4
+    // 4  send value to publisher 1
     publishers.send(publisher1)
     publisher1.send(1)
     publisher1.send(2)
