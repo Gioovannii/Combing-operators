@@ -149,7 +149,19 @@ example(of: "switchToLatest") {
 }
 
 
-
+example(of: "switchToLatest") {
+    let url = URL(string: "https://source.unsplash.com/random")!
+    
+    // 1 Define methode which pergorm request to fetch random image
+    func getImage() -> AnyPublisher<UIImage?, Never> {
+        URLSession.shared
+            .dataTaskPublisher(for: url)
+            .map { data, _ in UIImage(data: data) }
+            .print("image")
+            .replaceError(with: nil)
+            .eraseToAnyPublisher()
+    }
+   
 
 // Copyright (c) 2020 Razeware LLC
 //
