@@ -161,7 +161,18 @@ example(of: "switchToLatest") {
             .replaceError(with: nil)
             .eraseToAnyPublisher()
     }
+    
+    // 2  Create Passtrough subject to simulate taps
+    let taps = PassthroughSubject<Void, Never>()
+    
+    taps
+        .map { _ in getImage() } // 3 Upon a button tap map new network request. This transform Void -> UIImage
+        .switchToLatest() // 4 switchToLatest to emit values and cancel anyprevious subscription
+        .sink(receiveValue: { _ in })
+        .store(in: &subscriptions)
+    
    
+
 
 // Copyright (c) 2020 Razeware LLC
 //
