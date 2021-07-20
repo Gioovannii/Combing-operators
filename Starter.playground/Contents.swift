@@ -214,6 +214,13 @@ example(of: "Merge(with:)") {
 }
 
 
+example(of: "combineLatest") {
+    // 1
+    let publisher1 = PassthroughSubject<Int, Never>()
+    let publisher2 = PassthroughSubject<String, Never>()
+    
+   
+}
 
 // Copyright (c) 2020 Razeware LLC
 //
