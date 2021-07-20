@@ -238,6 +238,9 @@ example(of: "combineLatest") {
     
     publisher2.send("c")
 
+    // 4
+    publisher1.send(completion: .finished)
+    publisher2.send(completion: .finished)
 }
 
 // Copyright (c) 2020 Razeware LLC
