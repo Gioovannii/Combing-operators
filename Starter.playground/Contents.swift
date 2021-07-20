@@ -149,40 +149,42 @@ example(of: "switchToLatest") {
 }
 
 
-example(of: "switchToLatest") {
-    let url = URL(string: "https://source.unsplash.com/random")!
-    
-    // 1 Define methode which pergorm request to fetch random image
-    func getImage() -> AnyPublisher<UIImage?, Never> {
-        URLSession.shared
-            .dataTaskPublisher(for: url)
-            .map { data, _ in UIImage(data: data) }
-            .print("image")
-            .replaceError(with: nil)
-            .eraseToAnyPublisher()
-    }
-    
-    // 2  Create Passtrough subject to simulate taps
-    let taps = PassthroughSubject<Void, Never>()
-    
-    taps
-        .map { _ in getImage() } // 3 Upon a button tap map new network request. This transform Void -> UIImage
-        .switchToLatest() // 4 switchToLatest to emit values and cancel anyprevious subscription
-        .sink(receiveValue: { _ in })
-        .store(in: &subscriptions)
-    
-    // 5 simulate 3 delayed buttons
-    taps.send()
-    
-    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-        taps.send()
-    }
-    
-    DispatchQueue.main.asyncAfter(deadline: .now() + 3.1) {
-        taps.send()
-    }
-   
-}
+//example(of: "switchToLatest - Network request") {
+//    let url = URL(string: "https://source.unsplash.com/random")!
+//
+//    // 1 Define methode which pergorm request to fetch random image
+//    func getImage() -> AnyPublisher<UIImage?, Never> {
+//        URLSession.shared
+//            .dataTaskPublisher(for: url)
+//            .map { data, _ in UIImage(data: data) }
+//            .print("image")
+//            .replaceError(with: nil)
+//            .eraseToAnyPublisher()
+//    }
+//
+//    // 2  Create Passtrough subject to simulate taps
+//    let taps = PassthroughSubject<Void, Never>()
+//
+//    taps
+//        .map { _ in getImage() } // 3 Upon a button tap map new network request. This transform Void -> UIImage
+//        .switchToLatest() // 4 switchToLatest to emit values and cancel anyprevious subscription
+//        .sink(receiveValue: { _ in })
+//        .store(in: &subscriptions)
+//
+//    // 5 simulate 3 delayed buttons
+//    taps.send()
+//
+//    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+//        taps.send()
+//    }
+//
+//    DispatchQueue.main.asyncAfter(deadline: .now() + 3.1) {
+//        taps.send()
+//    }
+//}
+
+
+
 // Copyright (c) 2020 Razeware LLC
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
