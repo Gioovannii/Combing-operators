@@ -174,6 +174,11 @@ example(of: "switchToLatest") {
     // 5 simulate 3 delayed buttons
     taps.send()
     
+    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+        taps.send()
+    }
+    
+   
    
 }
 // Copyright (c) 2020 Razeware LLC
