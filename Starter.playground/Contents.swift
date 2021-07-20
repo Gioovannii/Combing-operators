@@ -183,6 +183,20 @@ example(of: "switchToLatest") {
 //    }
 //}
 
+example(of: "Merge(with:)") {
+    // 1 create two passthrough subject
+    let publisher1 = PassthroughSubject<Int, Never>()
+    let publisher2 = PassthroughSubject<Int, Never>()
+
+    
+    // 2 Merge publisher 1 to 2
+    // Combine offer overloads that let you merge up to eight differents publishers.
+    publisher1
+        .merge(with: publisher2)
+        .sink(receiveCompletion: { _ in print("Completed") },
+              receiveValue: { print($0) })
+        .store(in: &subscriptions)
+
 
 
 // Copyright (c) 2020 Razeware LLC
