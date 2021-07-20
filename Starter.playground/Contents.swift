@@ -197,6 +197,22 @@ example(of: "Merge(with:)") {
               receiveValue: { print($0) })
         .store(in: &subscriptions)
 
+    
+    // 3 add values to publisher
+    publisher1.send(1)
+    publisher1.send(2)
+    
+    publisher2.send(3)
+    
+    publisher1.send(4)
+    
+    publisher2.send(5)
+    
+    // 4 send completion to publisher
+    publisher1.send(completion: .finished)
+    publisher2.send(completion: .finished)
+}
+
 
 
 // Copyright (c) 2020 Razeware LLC
@@ -226,3 +242,4 @@ example(of: "Merge(with:)") {
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
+
