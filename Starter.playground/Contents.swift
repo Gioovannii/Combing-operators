@@ -178,7 +178,9 @@ example(of: "switchToLatest") {
         taps.send()
     }
     
-   
+    DispatchQueue.main.asyncAfter(deadline: .now() + 3.1) {
+        taps.send()
+    }
    
 }
 // Copyright (c) 2020 Razeware LLC
