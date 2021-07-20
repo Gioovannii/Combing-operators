@@ -171,9 +171,11 @@ example(of: "switchToLatest") {
         .sink(receiveValue: { _ in })
         .store(in: &subscriptions)
     
+    // 5 simulate 3 delayed buttons
+    taps.send()
+    
    
-
-
+}
 // Copyright (c) 2020 Razeware LLC
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
