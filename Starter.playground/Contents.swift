@@ -225,7 +225,19 @@ example(of: "combineLatest") {
         .sink(receiveCompletion: { _ in print("Completed") },
               receiveValue: { print("P1: \($0); P2: \($1)") })
         .store(in: &subscriptions)
-  
+    
+    // 3
+    publisher1.send(1)
+    publisher1.send(2)
+    
+    
+    publisher2.send("a")
+    publisher2.send("b")
+    
+    publisher1.send(3)
+    
+    publisher2.send("c")
+
 }
 
 // Copyright (c) 2020 Razeware LLC
