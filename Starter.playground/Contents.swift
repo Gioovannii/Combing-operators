@@ -226,7 +226,7 @@ example(of: "combineLatest") {
               receiveValue: { print("P1: \($0); P2: \($1)") })
         .store(in: &subscriptions)
     
-    // 3
+    // 3 send value to publishers
     publisher1.send(1)
     publisher1.send(2)
     
