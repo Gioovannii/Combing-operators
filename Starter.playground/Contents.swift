@@ -243,6 +243,10 @@ example(of: "combineLatest") {
     publisher2.send(completion: .finished)
 }
 
+
+example(of: "zip") {
+    
+}
 // Copyright (c) 2020 Razeware LLC
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
