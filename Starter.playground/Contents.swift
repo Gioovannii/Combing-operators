@@ -249,6 +249,12 @@ example(of: "zip") {
     let publisher1 = PassthroughSubject<Int, Never>()
     let publisher2 = PassthroughSubject<String, Never>()
     
+    // 2
+    publisher1
+        .zip(publisher2)
+        .sink(receiveCompletion: { _ in print("Completed") },
+              receiveValue: { print("P1: \($0), P2: \($1)") })
+        .store(in: &subscriptions)
     
 }
 // Copyright (c) 2020 Razeware LLC
