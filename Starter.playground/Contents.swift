@@ -238,7 +238,7 @@ example(of: "combineLatest") {
     
     publisher2.send("c")
 
-    // 4
+    // 4 send completion 
     publisher1.send(completion: .finished)
     publisher2.send(completion: .finished)
 }
