@@ -215,7 +215,7 @@ example(of: "Merge(with:)") {
 
 
 example(of: "combineLatest") {
-    // 1
+    // 1 create two passthrough subject
     let publisher1 = PassthroughSubject<Int, Never>()
     let publisher2 = PassthroughSubject<String, Never>()
     
