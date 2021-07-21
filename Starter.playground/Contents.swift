@@ -245,6 +245,7 @@ example(of: "combineLatest") {
 
 
 example(of: "zip") {
+    // 1
     let publisher1 = PassthroughSubject<Int, Never>()
     let publisher2 = PassthroughSubject<String, Never>()
     
